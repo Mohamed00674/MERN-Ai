@@ -1,17 +1,21 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { config } from "dotenv";
 config();
-import morgan from "morgan"
+import morgan from "morgan";
 
 import { connectDatabase } from "./db/connect.js";
 import userRoutes from "./routes/Auth.js";
 
 const app = express();
 app.use(express.json());
+
+app.use(cookieParser(process.env.COOKIE_SECRET));
+
 app.use(cors());
-app.use(morgan("dev"))
-app.use("/api" , userRoutes )
+app.use(morgan("dev"));
+app.use("/api", userRoutes);
 
 const PORT: number = 3000;
 
@@ -21,4 +25,4 @@ connectDatabase()
       console.log(`server running on port : ${PORT}`);
     });
   })
-  .catch((err) => console.log(err) );
+  .catch((err) => console.log(err));
