@@ -1,4 +1,5 @@
-import { AppBar,Toolbar } from "@mui/material"
+import { AppBar, Toolbar } from "@mui/material"
+import Logo from "./shared/logo.tsx"
 function Header() {
   return (
     <div>
@@ -7,7 +8,9 @@ function Header() {
         position: "static",
         boxShadow : "none"
       }} >
-        <Toolbar></Toolbar>
+        <Toolbar sx={{ display: "flex" }} >
+          <Logo/>
+        </Toolbar>
       </AppBar>
     </div>
   )
