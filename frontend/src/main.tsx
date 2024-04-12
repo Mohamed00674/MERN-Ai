@@ -5,7 +5,7 @@ import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./Context/AuthContext.tsx";
-   
+
 const theme = createTheme({
   typography: {
     fontFamily: "Roboto,Slab,serif",

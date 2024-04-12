@@ -5,8 +5,10 @@ import { Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
 import Chat from "./pages/Chat";
 import Notfound from "./pages/Notfound";
+import { useAuth } from "./Context/AuthContext";
 
 function App() {
+   console.log(useAuth()?.isLoggedIn); 
   return (
     <>
       <Header/>

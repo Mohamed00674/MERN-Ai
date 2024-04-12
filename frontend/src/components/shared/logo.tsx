@@ -28,7 +28,7 @@ function logo() {
           textShadow: "2px 2px 20px #000 ",
         }}
       >
-        <span style={{ fontSize: "20px" }}>MERN </span> -GPT
+        <span style={{ fontSize: "20px" }}>Genini </span> 
       </Typography>
     </div>
   );

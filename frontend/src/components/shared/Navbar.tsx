@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 type Props = {
   to: string,
   bg: string,
@@ -11,7 +10,7 @@ type Props = {
 
 function Navbar(props : Props ) {
   return (
-    <Link to={props.to}  style={{backgroundColor : props.bg , color : props.textColor}} >{ props.text}</Link>
+    <Link className="nav" to={props.to} onClick= {props.onClick} style={{background : props.bg , color : props.textColor}} >{ props.text}</Link>
   )
 }
 
