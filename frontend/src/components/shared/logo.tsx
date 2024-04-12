@@ -13,7 +13,7 @@ function logo() {
     >
       <Link to={"/"}>
         <img
-          src="../../../public/openai.png"
+          src="openai.png"
           alt="this is a logo"
           width={"30px"}
           height={"30px"}
