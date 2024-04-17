@@ -3,9 +3,13 @@ import CustomizedInput from "../components/shared/CustomizedInput";
 import { FiLogIn } from "react-icons/fi";
 
 function Login() {
-  const handleClick = (event : React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-  }
+  const handleClick = (e : React.FormEvent<HTMLFormElement>) : void => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password")
+    console.log(email,password)
+  } 
 
   return (
     <Box width={"100%"} height={"100%"} display="flex" flex={1}>
@@ -26,6 +30,7 @@ function Login() {
         mt={16}
       >
         <form
+          onSubmit={handleClick}
           style={{
             margin: "auto",
             padding: "30px",
@@ -52,7 +57,6 @@ function Login() {
             <CustomizedInput name="email" label="Email" type="email" />
             <CustomizedInput type="password" label="Password" name="password" />
             <Button
-              onSubmit={(handleClick(event))}
               startIcon={<FiLogIn />}
               type="submit"
               sx={{
