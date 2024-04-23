@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-
+import { loginUser } from "../helpers/apiCalls"
 type User = {
   name: string;
   email: string;
@@ -22,7 +22,13 @@ const AuthContext = createContext<UserAuth | null>(null);
   useEffect(() => {}, []);
 
   const register = async (name: string, email: string, password: string) => {};
-  const login = async (email: string, password: string) => {};
+   const login = async (email: string, password: string) => {
+     const data = await loginUser(email, password);
+     if (data) {
+       setUser({ email: data.email, name: data.email })
+       setIsLoggedIn(true)
+     }
+  };
   const logout = async () => {};
 
   const value = {
