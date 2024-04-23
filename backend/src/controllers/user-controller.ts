@@ -50,7 +50,9 @@ export const register = async (
       httpOnly: true,
       signed: true,
     });
-    return res.status(201).json({ message: "ok", user });
+    return res
+      .status(201)
+      .json({ message: "ok", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
     return res.status(404).json({ message: "error" });
@@ -90,7 +92,9 @@ export const logIn = async (
       httpOnly: true,
       signed: true,
     });
-    return res.status(200).json({ message: "ok", id: user._id });
+    return res
+      .status(200)
+      .json({ message: "ok", name: user.name, email: user.email });
   } catch (error) {
     console.log(error);
     return res.status(404).json({ message: "error" });

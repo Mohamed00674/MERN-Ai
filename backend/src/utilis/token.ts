@@ -1,3 +1,4 @@
+import { Request ,Response,NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 export const createToken = (id: string, email: string, expiresIn) => {
@@ -8,3 +9,9 @@ export const createToken = (id: string, email: string, expiresIn) => {
 
   return token;
 };
+
+
+export const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
+   
+
+}

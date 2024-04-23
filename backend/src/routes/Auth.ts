@@ -6,7 +6,9 @@ const userRoutes = Router();
 
 userRoutes.get("/users", getAllUsers);
 userRoutes.post("/register", validate(registerValidator), register);
-userRoutes.post("/login" ,validate(loginValidator), logIn)
+userRoutes.post("/login", validate(loginValidator), logIn)
+userRoutes.get("/auth-status", logIn);
+
 
 
 
