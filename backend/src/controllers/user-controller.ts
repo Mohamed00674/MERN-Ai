@@ -100,3 +100,23 @@ export const logIn = async (
     return res.status(404).json({ message: "error" });
   }
 };
+
+export const checkAuth = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(res.locals.jwtData.id);
+    if (!user) {
+      res.status(401).send("User not registered");
+    }
+    console.log(user._id.toString() , res.locals.jwtData.id );
+    
+    if (user._id.toString() !== res.locals.jwtData.id) {
+      res.status(401).send("Permissions didn't match");
+    }
+    return res
+      .status(200)
+      .json({ message: "ok", name: user.name, email: user.email });
+  } catch (error) {
+    console.log(error);
+    return res.status(404).json({ message: "error" });
+  }
+};
