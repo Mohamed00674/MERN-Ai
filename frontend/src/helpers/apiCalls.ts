@@ -9,3 +9,13 @@ import axios from "axios";
     return data
 };
 
+  export const checkAuthStatus = async () => {
+   const response = await axios.get("/user/auth-status");
+   if (response.status !== 200) {
+     throw new Error("Unable to Login");
+   }
+   const data = await response.data;
+   return data;
+ };
+
+ 
